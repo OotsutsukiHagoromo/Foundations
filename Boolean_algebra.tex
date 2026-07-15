@@ -216,3 +216,40 @@
 	В жизни встречается знак равенства по определению --- <<$:=$>> или <<$=:$>>.
 	Двоеточие ставится со стороны определяемого объекта.
 \end{note}
+
+\section{Отрицание}
+
+\begin{definition}
+	\label{def:neg_quantors_simple}
+	Определим отрицание выражений с кванторами:
+	\begin{align}
+		\neg
+		\bigl(
+			\forall x
+			\holds
+			P(x)
+		\bigr)
+		&:=
+		\bigl(
+			\exists x
+			\suchthat
+			\neg
+			P(x)
+		\bigr)
+		,
+		\\
+		\bigl(
+			\exists x
+			\suchthat
+			P(x)
+		\bigr)
+		&:=
+		\bigl(
+			\forall x
+			\holds
+			\neg
+			P(x)
+		\bigr)
+		.
+	\end{align}
+\end{definition}

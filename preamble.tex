@@ -1,0 +1,45 @@
+\usepackage{physPreamble}
+\usepackage{halloweenmath}
+
+% \newcommand*{\circabove}[1]{{\mathop{#1}\limits^\circ}}
+\newcommand*{\circabove}[1]{{\overset{\circ}{#1}}}
+\newcommand*{\Bo}{\circabove{B}}
+\newcommand*{\Vo}{\circabove{V}}
+
+\newcommand*{\baseB}{\mathcal{B}}
+
+\newcommand*{\mypart}[2][]{%
+	\clearpage
+	\ifthenelse{\equal{#1}{}}{%
+		\part{#2}%
+	}{%
+		\part[#1]{#2}%
+	}%
+}
+
+\newcommand{\mathtextbox}[2][1.7in]{%
+	\parbox{#1}{%
+		\centering
+		#2%
+		\par
+	}%
+}
+
+\renewenvironment{definition}{\relax}{\relax}
+\renewenvironment{note}{\relax}{\relax}
+\renewenvironment{exersize}{\relax}{\relax}
+\newenvironment{solution}{\relax}{\relax}
+
+% \newcommand*{\id}{\mathop{\mathrm{id}}}
+
+\newcommand*{\GU}{\mathfrak{U}}
+
+\renewcommand*{\emptyset}{\varnothing}
+
+% \renewcommand*{\thesection}{\Roman{part}.\arabic{section}}
+
+\newcommand*{\bas}[1]{\mathbb{#1}}
+\newcommand*{\kk}{\mathbb{k}}
+
+\newcommand*{\mhp}{\mathbin{\widehat{+}}}
+\newcommand*{\mhc}{\mathbin{\widehat{\cdot}}}

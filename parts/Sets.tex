@@ -519,6 +519,9 @@
 		P(x)
 	\bigr)
 	,
+	\refstepcounter{equation}
+	\tag{\theequation.1}
+	\label{eq:sets:forall:x_in_set}
 	\\
 	\bigl(
 		\exists x \in A
@@ -534,6 +537,8 @@
 		P(x)
 	\bigr)
 	.
+	\tag{\theequation.2}
+	\label{eq:sets:exists:x_in_set}
 \end{align*}
 Вместо $\forall x \in \GU$ и $\exists x \in \GU$ можно было бы писать просто
 $\forall x$ и~$\exists x$.
@@ -666,6 +671,12 @@ $\forall x$ и~$\exists x$.
 	\bigr)
 	.
 \end{align*}
+
+\begin{exercise}
+	Будет ли сохраняться это свойство, если поменять
+	в~\eqref{eq:sets:forall:x_in_set} и~\eqref{eq:sets:exists:x_in_set}
+	местами ${\implies}$ и~$\wedge$?
+\end{exercise}
 
 
 \section{Отношения и отображения}

@@ -1,4 +1,4 @@
 [submodule "sed_regexp"]
 	path = sed
-	branch = master
+	branch = avikosuya
 	url = git@github.com:OotsutsukiHagoromo/sed_regexp.git

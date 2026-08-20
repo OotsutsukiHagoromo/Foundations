@@ -101,8 +101,8 @@
 		\item если $x \in y$ и $y \in \GU$, то $x \in \GU$;
 		\item если $x \in \GU$ и $y \in \GU$, то $\set*{x, y} \in \GU$;
 		\item если $x \in \GU$, то $2^x \in \GU$;
-		\item если $\set{x_i \in \GU}{i \in I}$~"--- набор элементов из~$\GU$ и~$I
-					\in \GU$, то
+		\item если $\set{x_i \in \GU}{i \in I}$~"--- набор элементов из~$\GU$
+			и~$I \in \GU$, то
 					$
 						\bigcup\limits_{i \in I} x_i \in \GU
 					$.
@@ -176,10 +176,14 @@
 		\[
 			S(A) := A \cup \set*{A}.
 		\]
-		Далее положим по определению~$0 := \abs{\emptyset}$, $1 :=
-		\abs{S(\emptyset)} = \abs{\set*{\emptyset}}$, $2 := \abs{S \bigl(
-		S(\emptyset) \bigr)} = \abs{\set*{\emptyset, \set*{\emptyset}}}$, и так
-		далее. Фраза <<и так далее>> формализуется с помощью леммы Цорна; об этом можно почитать, к примеру, в курсе А.\,Л.\,Городенцева <<Алгебра~"--- 1>>.
+		Далее положим по определению~%
+		$0 := \abs{\emptyset}$,
+		$1 := \abs{S(\emptyset)} = \abs{\set*{\emptyset}}$,
+		$2 := \abs{S \bigl( S(\emptyset) \bigr)} =
+			\abs{\set*{\emptyset, \set*{\emptyset}}}$,
+		и~так далее. Фраза <<и так далее>> формализуется с помощью леммы Цорна; об
+		этом можно почитать, к примеру, в курсе А.\,Л.\,Городенцева <<Алгебра~"---
+		1>>.
 
 		Также можно определить натуральные числа как классы эквивалентности конечных множеств:
 		\begin{align*}
@@ -189,11 +193,14 @@
 			\\
 			2 &:= \set*{0, 1} = \set*{\emptyset, \set*{\emptyset}},
 			\\
-			3 &:= \set*{0, 1, 2} = \set*{\emptyset, \set*{\emptyset}, \set*{\emptyset, \set*{\emptyset}}},
+			3 &:= \set*{0, 1, 2} =
+			\set*{\emptyset, \set*{\emptyset}, \set*{\emptyset, \set*{\emptyset}}},
 		\end{align*}
-		и так далее. Вообще, $n + 1 = n \cup \set*{n} = \set*{0, 1, \dots, n}$. Это построение \tdef{конечных ординалов}.
+		и так далее. Вообще, $n + 1 = n \cup \set*{n} = \set*{0, 1, \dots, n}$. Это
+		построение \tdef{конечных ординалов}.
 	}%
-	). Будем обозначать натуральные числа, в которых присутствует~$0$, символом~$\NN_0$:
+	). Будем обозначать натуральные числа, в которых присутствует~$0$,
+	символом~$\NN_0$:
 	\[
 		\NN_0 := \set*{0, 1, 2, 3, \dots}
 		.
@@ -498,11 +505,160 @@
 
 Пусть $A$ --- множество, а~$P$ --- высказывание. Определим такие множества:
 \begin{align*}
-	\set{x \in A}{P(x)}
+	\bigl(
+		\forall x \in A
+		\holds
+		P(x)
+	\bigr)
 	&:=
-	\set{x}{(x \in A) \wedge P(x)}
-	;
+	\bigl(
+		\forall x \in \GU
+		\holds
+		(x \in A)
+		\wedge
+		P(x)
+	\bigr)
+	,
+	\\
+	\bigl(
+		\exists x \in A
+		\holds
+		P(x)
+	\bigr)
+	&:=
+	\bigl(
+		\exists x \in \GU
+		\holds
+		(x \in A)
+		\implies
+		P(x)
+	\bigr)
+	.
 \end{align*}
+Вместо $\forall x \in \GU$ и $\exists x \in \GU$ можно было бы писать просто
+$\forall x$ и~$\exists x$.
+
+Посмотрим на то, как можно составить отрицания:
+\begin{align*}
+	\neg
+	\bigl(
+		\forall x \in A
+		\holds
+		P(x)
+	\bigr)
+	&:=
+	\neg
+	\bigl(
+		\forall x
+		\holds
+		(x \in A)
+		\wedge
+		P(x)
+	\bigr)
+	\nlinea{:=}
+	\bigl(
+		\exists x
+		\holds
+		\overline{
+			(x \in A)
+			\wedge
+			P(x)
+		}
+	\bigr)
+	\nlinea{\,=}
+	\bigl(
+		\exists x
+		\holds
+		\overline{
+			\overline{
+				(x \in A)
+			}
+		}
+		\vee
+		\overline{
+			P(x)
+		}
+	\bigr)
+	\nlinea{\,=}
+	\bigl(
+		\exists x
+		\holds
+			(x \in A)
+		\vee
+		\overline{
+			P(x)
+		}
+	\nlinea{\,=}
+	\bigl(
+		\exists x
+		\holds
+			(x \in A)
+		\vee
+		\overline{
+			P(x)
+		}
+	\nlinea{:=}
+	\bigl(
+		\exists x \in A
+		\holds
+		\overline{
+			P(x)
+		}
+	\bigr)
+	,
+	\\
+	\neg
+	\bigl(
+		\exists x \in A
+		\holds
+		P(x)
+	\bigr)
+	&:=
+	\bigl(
+		\exists x
+		\holds
+		(x \in A)
+		\wedge
+		P(x)
+	\bigr)
+	\nlinea{:=}
+	\bigl(
+		\forall x
+		\holds
+		\overline{
+			(x \in A)
+			\wedge
+			P(x)
+		}
+	\bigr)
+	\nlinea{=}
+	\bigl(
+		\forall x
+		\holds
+		\overline{
+			(x \in A)
+		}
+		\vee
+		\overline{
+			P(x)
+		}
+	\bigr)
+	\nlinea{=}
+	\bigl(
+		\forall x
+		\holds
+		\overline{
+			(x \in A)
+		}
+		\vee
+		\overline{
+			P(x)
+		}
+	\bigr)
+	\nlinea{=}
+	.
+\end{align*}
+
 
 \section{Отношения и отображения}
 \begin{definition}
@@ -649,7 +805,9 @@ B$ определено \emph{подмножество} (!) в~$A$
 \end{description}
 
 \begin{definition}
-	Отображение, одновременно инъективное и сюръективное, называется \tdef{биективным}, или \tdef{взаимно однозначным}. (Иногда ещё говорят <<взаимно однозначное соответствие>>.)
+	Отображение, одновременно инъективное и сюръективное, называется
+	\tdef{биективным}, или \tdef{взаимно однозначным}. (Иногда ещё говорят
+	<<взаимно однозначное соответствие>>.)
 \end{definition}
 
 Биективное отображение $\phi \colon A \to B$ переводит каждую точку из~$A$ в ровно одну точку из~$B$, причём у каждой точки из~$B$ есть прообраз, состоящий ровно из одной точки из~$A$.

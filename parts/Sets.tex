@@ -515,7 +515,7 @@
 		\forall x \in \GU
 		\holds
 		(x \in A)
-		\wedge
+		\implies
 		P(x)
 	\bigr)
 	,
@@ -530,7 +530,7 @@
 		\exists x \in \GU
 		\holds
 		(x \in A)
-		\implies
+		\wedge
 		P(x)
 	\bigr)
 	.
@@ -547,12 +547,12 @@ $\forall x$ и~$\exists x$.
 		P(x)
 	\bigr)
 	&:=
-	\neg
+	\neq
 	\bigl(
 		\forall x
 		\holds
 		(x \in A)
-		\wedge
+		\implies
 		P(x)
 	\bigr)
 	\nlinea{:=}
@@ -561,7 +561,19 @@ $\forall x$ и~$\exists x$.
 		\holds
 		\overline{
 			(x \in A)
-			\wedge
+			\implies
+			P(x)
+		}
+	\bigr)
+	\nlinea{\,=}
+	\bigl(
+		\exists x
+		\holds
+		\overline{
+			\overline{
+				(x \in A)
+			}
+			\vee
 			P(x)
 		}
 	\bigr)
@@ -574,7 +586,7 @@ $\forall x$ и~$\exists x$.
 				(x \in A)
 			}
 		}
-		\vee
+		\wedge
 		\overline{
 			P(x)
 		}
@@ -584,16 +596,7 @@ $\forall x$ и~$\exists x$.
 		\exists x
 		\holds
 			(x \in A)
-		\vee
-		\overline{
-			P(x)
-		}
-	\nlinea{\,=}
-	\bigl(
-		\exists x
-		\holds
-			(x \in A)
-		\vee
+		\wedge
 		\overline{
 			P(x)
 		}
@@ -631,7 +634,7 @@ $\forall x$ и~$\exists x$.
 			P(x)
 		}
 	\bigr)
-	\nlinea{=}
+	\nlinea{\,=}
 	\bigl(
 		\forall x
 		\holds
@@ -643,19 +646,24 @@ $\forall x$ и~$\exists x$.
 			P(x)
 		}
 	\bigr)
-	\nlinea{=}
+	\nlinea{:=}
 	\bigl(
 		\forall x
 		\holds
-		\overline{
-			(x \in A)
-		}
-		\vee
+		(x \in A)
+		\implies
 		\overline{
 			P(x)
 		}
 	\bigr)
-	\nlinea{=}
+	\nlinea{:=}
+	\bigl(
+		\forall x \in A
+		\holds
+		\overline{
+			P(x)
+		}
+	\bigr)
 	.
 \end{align*}
 

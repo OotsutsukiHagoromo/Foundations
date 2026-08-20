@@ -1,0 +1,3 @@
+[submodule "sed_regexp"]
+	path = sed
+	url = git@github.com:OotsutsukiHagoromo/sed_regexp.git
